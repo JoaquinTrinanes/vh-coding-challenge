@@ -4,13 +4,19 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
-.question-card,
-.question-card:link,
-.question-card:hover {
+.no-anchor-color,
+.no-anchor-color:link,
+.no-anchor-color:hover {
     color: initial;
 }
 
 .question-card {
+    &:hover {
+        background-color: $jumbotron-bg;
+    }
+}
+
+.header {
     &:hover {
         background-color: $jumbotron-bg;
     }

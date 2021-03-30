@@ -26,7 +26,7 @@
                     <p class="mb-0">{!! nl2br(e($answer->answer)) !!}</p>
                 </li>
             @empty
-                <div>There are no answers <div><small class="text-muted">Be the first to reply!</small></div>
+                <div>There are no answers<div> <small class="text-muted">Be the first to reply!</small></div>
                 </div>
             @endforelse
         </ul>

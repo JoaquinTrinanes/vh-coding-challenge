@@ -23,7 +23,10 @@
     @endif
 
     <div class="container mt-5">
-        <h1>Q & A</h1>
+        <a href="/" class="no-anchor-color text-decoration-none rounded-lg header d-inline-block p-3">
+            <h1>Q & A</h1>
+        </a>
+
         <hr />
         {{ $slot }}
     </div>

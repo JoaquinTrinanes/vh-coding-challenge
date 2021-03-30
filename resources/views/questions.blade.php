@@ -23,7 +23,7 @@
 
     <div>
         @forelse ($questions as $question)
-            <a class="text-decoration-none" href="{{ route('questions.answers.index', $question->id) }}">
+            <a class="text-decoration-none no-anchor-color" href="{{ route('questions.answers.index', $question->id) }}">
                 <div class="card shadow mb-4 question-card">
                     <div class="card-body">
                         <div class="card-title">

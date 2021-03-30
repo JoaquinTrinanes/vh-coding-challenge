@@ -10001,15 +10001,17 @@ h3 {
     border-color: #dee2e6;
   }
 }
-}
-
-.question-card,
-.question-card:link,
-.question-card:hover {
+.no-anchor-color,
+.no-anchor-color:link,
+.no-anchor-color:hover {
   color: initial;
 }
 
 .question-card:hover {
+  background-color: #e9ecef;
+}
+
+.header:hover {
   background-color: #e9ecef;
 }
 
