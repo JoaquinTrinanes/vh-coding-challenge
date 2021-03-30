@@ -1,3 +1,11 @@
+To execute:
+
+```
+./vendor/bin/sail up
+```
+
+---
+
 Hey!
 
 First off, thank you for taking the time to do this challenge. We know it's annoying, but there are a few reasons we now require this before being accepted into the Vegan Hacktivists. First, a number of volunteers in the past, while passionate, didn't have much programming experience. This led to a decrease both in code quality and available time from the more senior developers (due to answering questions, refactoring, etc.). The bigger issue, however, is that many of our volunteers have disappeared without warning, leaving us shortstaffed. With this coding challenge, we're hoping to narrow our recruitment down to those with both experience and the will to put in some work.
