@@ -13,23 +13,15 @@ class Question extends Model
         'question'
     ];
 
+    protected $appends = ['number_of_answers'];
+
     public function answers()
     {
         return $this->hasMany(Answer::class);
-    }
-
-    public function insertAnswer($answer)
-    {
-        Answer::create([
-            'question_id' => $this->id,
-            'answer' => $answer
-        ]);
     }
 
     public function getNumberOfAnswersAttribute()
     {
         return $this->answers()->count();
     }
-
-    protected $appends = ['number_of_answers'];
 }

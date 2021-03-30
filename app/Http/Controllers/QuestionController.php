@@ -17,15 +17,6 @@ class QuestionController extends Controller
         return view('questions', ['questions' => Question::all()->sortBy('created_at', SORT_REGULAR, true)]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,62 +26,15 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+
+        $validated = $this->validate($request, [
             'question' => 'required|min:5|regex:/^.*\?$/'
+        ], [
+            'question.regex' => 'The question must end with \'?\''
         ]);
 
-        Question::create($validated);
+        $question = Question::create($validated);
 
-        // $request->session()->reflash();
-
-        return redirect('questions')->withInput();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Question  $question
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Question $question)
-    {
-        return view(
-            'answers',
-            ['question' => $question]
-        );
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Question  $question
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Question $question)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Question  $question
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Question $question)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Question  $question
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Question $question)
-    {
-        //
+        return redirect("questions/{$question->id}/answers")->with('message', 'The question was successfully posted');
     }
 }

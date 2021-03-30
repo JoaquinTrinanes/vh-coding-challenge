@@ -9,13 +9,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-
     <title>{{ $title ?? 'Q&A' }}</title>
 </head>
 
 <body>
+    @if (session('message'))
+        <div class="alert alert-{{ session('role') ?? 'success' }} alert-dismissible fade show" role="alert">
+            {{ session('message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
 
-    <div class="container">
+    <div class="container mt-5">
         <h1>Q & A</h1>
         <hr />
         {{ $slot }}
