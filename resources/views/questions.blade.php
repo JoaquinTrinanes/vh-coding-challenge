@@ -13,8 +13,9 @@
                     </ul>
                 </div>
             @endif
-            <textarea class="form-control form-control-lg" id="question" rows="3"
-                placeholder="Todo set random question?" name="question">{{ old('question') }}</textarea>
+            <input type="text" name="question" id="question" class="form-control form-control-lg"
+                placeholder="{{ Arr::random(Config::get('constants.question_placeholders')) }}"
+                value="{{ old('question') }}" />
             <small id="help" class="form-text text-muted">Your submission will be anonymous.</small>
 
             <button class="btn btn-primary btn-lg" type="submit">Ask!</button>
