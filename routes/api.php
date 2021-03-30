@@ -16,32 +16,3 @@ use App\Models\Answer;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
-// questions
-Route::get('/questions', function () {
-    // TODO: get all questios summary
-    return Question::all();
-});
-
-Route::post('/questions', function () {
-    // TODO: insert in DB
-    Question::create([
-        'question' => 'test'
-    ]);
-});
-
-
-// WARNING: all powerful purge
-Route::delete('/questions', function () {
-    Question::whereNotNull('id')->delete();
-});
-
-
-// answers
-Route::get('/questions/{questionId}/answers', function ($questionId) {
-    return Question::find($questionId)->answers();
-});
-
-Route::post('/questions/{questionId}/answers', function ($questionId) {
-});
