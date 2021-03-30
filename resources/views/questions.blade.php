@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
-    <title>Questions</title>
-</head>
-
-<body>
-
-    <div class="container">
-        <h1>Q & A</h1>
-
         <div class="jumbotron">
             <h1 class="display-4">Ask a question</h1>
 
@@ -37,7 +17,8 @@
                 <div>No questions :(</div>
             @endforelse
         </div>
+<x-master>
     </div>
-</body>
 
 </html>
+</x-master>

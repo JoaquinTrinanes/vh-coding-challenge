@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <title>{{ $question->question }}</title>
-</head>
-
-<body>
-    <p>{{ $question->answers }}</p>
-</body>
-
-</html>
+<x-master>
+    <div>
+        @forelse ($question->answers() as $answer)
+            <div class="card shadow-sm">id: {{ $answer->id }} text: {{ $answer->answer }}</div>
+        @empty
+            <div>No answers :(</div>
+        @endforelse
+    </div>
+</x-master>
