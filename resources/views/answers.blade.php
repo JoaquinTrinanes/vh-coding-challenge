@@ -20,10 +20,10 @@
         </form>
     </div>
     <div>
-        <ul class="list-group">
+        <ul class="list-group mt-5">
             @forelse ($question->answers as $answer)
                 <li class="list-group-item align-middle card shadow-sm">
-                    <p class="mb-0">{{ $answer->answer }}</p>
+                    <p class="mb-0">{!! nl2br(e($answer->answer)) !!}</p>
                 </li>
             @empty
                 <div>There are no answers <div><small class="text-muted">Be the first to reply!</small></div>
