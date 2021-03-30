@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\QuestionController;
 use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::resource('questions', QuestionController::class)->only(['index', 'show', 'create']);
+Route::resource('questions', QuestionController::class)->only(['index', 'show', 'store']);
+
+Route::resource('questions.answers', AnswerController::class)->only(['index', 'store']);
 
 // Route::get('/', function () {
 //     return redirect('/questions');

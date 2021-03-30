@@ -10,3 +10,21 @@ body {
         Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol";
 }
+
+.question-card,
+.question-card:link,
+.question-card:hover {
+    color: initial;
+}
+
+.question-card {
+    &:hover {
+        background-color: $jumbotron-bg;
+    }
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

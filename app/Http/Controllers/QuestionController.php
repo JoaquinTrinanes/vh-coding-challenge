@@ -14,7 +14,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return view('questions', ['questions' => Question::all()]);
+        return view('questions', ['questions' => Question::all()->sortBy('created_at', SORT_REGULAR, true)]);
     }
 
     /**
@@ -35,7 +35,15 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'question' => 'required|min:5|regex:/^.*\?$/'
+        ]);
+
+        Question::create($validated);
+
+        // $request->session()->reflash();
+
+        return redirect('questions')->withInput();
     }
 
     /**
@@ -46,7 +54,10 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        return view('answers', ['question' => $question, 'answers' => $question->answers()]);
+        return view(
+            'answers',
+            ['question' => $question]
+        );
     }
 
     /**
