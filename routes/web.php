@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\QuestionController;
+use App\Models\Question;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::resource('questions', QuestionController::class)->only(['index', 'show', 'create']);
+
+// Route::get('/', function () {
+//     return redirect('/questions');
+// });
+
+// Route::get('/questions', function () {
+//     return view('questions', ['questions' => Question::all()->sortBy('created_at')]);
+// });
+
+// Route::get('/questions/{id}', function ($id) {
+//     $question = Question::find($id);
+//     return view('answers', ['question' => $question, 'answers' => $question->answers()]);
+// });
