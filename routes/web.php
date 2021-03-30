@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('questions', QuestionController::class)->only(['index', 'show', 'store']);
 Route::resource('questions.answers', AnswerController::class)->only(['index', 'store']);
+Route::permanentRedirect("/", "questions");
