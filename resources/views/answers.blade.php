@@ -3,6 +3,10 @@
         <h1>{{ $question->question }}</h1>
         <form method="POST" action="{{ route('questions.answers.store', ['question' => $question]) }}">
             {{ csrf_field() }}
+            <textarea class="form-control form-control-lg" id="answer" rows="3" placeholder="Answer the question&#8230;"
+                name="answer">{{ old('answer') }}</textarea>
+            <small id="help" class="form-text text-muted">Your submission will be anonymous.</small>
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -12,9 +16,6 @@
                     </ul>
                 </div>
             @endif
-            <textarea class="form-control form-control-lg" id="answer" rows="3" placeholder="Answer the question&#8230;"
-                name="answer">{{ old('answer') }}</textarea>
-            <small id="help" class="form-text text-muted">Your submission will be anonymous.</small>
 
             <button class="btn btn-primary btn-lg" type="submit">Answer</button>
         </form>

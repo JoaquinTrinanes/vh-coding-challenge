@@ -4,6 +4,11 @@
 
         <form method="POST" action="{{ route('questions.store') }}">
             {{ csrf_field() }}
+            <input type="text" name="question" id="question" class="form-control form-control-lg"
+                placeholder="{{ Arr::random(Config::get('constants.question_placeholders')) }}"
+                value="{{ old('question') }}" />
+            <small id="help" class="form-text text-muted">Your submission will be anonymous.</small>
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -13,10 +18,6 @@
                     </ul>
                 </div>
             @endif
-            <input type="text" name="question" id="question" class="form-control form-control-lg"
-                placeholder="{{ Arr::random(Config::get('constants.question_placeholders')) }}"
-                value="{{ old('question') }}" />
-            <small id="help" class="form-text text-muted">Your submission will be anonymous.</small>
 
             <button class="btn btn-primary btn-lg" type="submit">Ask!</button>
         </form>
